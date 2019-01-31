@@ -5,6 +5,7 @@ from rango.models import Page
 
 def show_category(request,category_name_slug):
      context_dict = {}
+     
      try:
           category = Category.objects.get(slug=category_name_slug)
 
@@ -24,7 +25,7 @@ def show_category(request,category_name_slug):
 def index(request):
     #return HttpResponse("Rango says hey there partner! <br/> <a href='/rango/about/'>About</a>")
      #context_dict = {'boldmessage' : "Crunchy, creamy, cookie, candy, cupcake!"}
-     category_list = Category.objects.order_by('-likes')[:5]
+     category_list = Category.objects.order_by('-views')[:5]
      context_dict = {'categories' : category_list}
      
      return render(request, 'rango/index.html', context_dict)
