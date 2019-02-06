@@ -6,9 +6,10 @@
 {% endblock %}
 
 {% block body_block %}
+	<div>
 	{% if category %}
 		<h1>{{ category.name }}</h1>
-
+		
 		{% if pages %}
 			<ul>
 			{% for page in pages %}
@@ -18,8 +19,10 @@
 		{% else %}
 			<strong>No pages currently in category.</strong>
 		{% endif %}
+		
 		<a href="{% url 'add_page' category.slug %}">Add a Page</a>
 	{% else %}
 		The specified category does not exist!
 	{% endif %}
+	</div>
 {% endblock %}
