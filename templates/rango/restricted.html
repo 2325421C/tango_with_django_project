@@ -1,0 +1,14 @@
+{% extends 'rango/base.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+	Restricted Page
+{% endblock %}
+
+{% block body_block %}
+	<div>
+	{% if user.is_authenticated %}
+		Since you're logged in, you can see this text!
+	{% endif %}
+	</div>
+{% endblock %}
